@@ -1,0 +1,145 @@
+Dumitrescu Evelina 331CA
+Tema1 APD
+
+Idee/strategie de rezolvare
+
+    Am ales sa implementez functiile init si finalize pt a evita testarea unor 
+conditii suplimentare in cadrul buclelor for principale (year == 0 sau year == T).
+Pentru o matrice cu numar mare de linii si coloane si numar mare de ani,
+diferenta este seminificativa.
+Am observat scaderea timpului de executie cu cateva secunde.
+    Metoda dostuff prelucreaza matricile de resurse, pret, buget, cost, costRes
+pentru anii de la 1 la T-1.
+    Initial, calculez valorile minime pentru vcost[i][j], vcostRes[i][j], numarul de 
+colonisti  cu resursa A si B, pretul maxim pt resursa A si B.
+    Actualizez valorile pentru anul urmator astfel:
+    - daca vcost[i][j] >vbudget[i][j]
+        => vprice[i][j]=vprice[i][j]+(vcost[i][j]-vbudget[i][j]);
+            vbudget[i][j]=vcost[i][j];
+    - daca vcost[i][j]<vbudget[i][j]       
+        => vprice[i][j]+=(vcost[i][j]-vbudget[i][j])/2;
+            vbudget[i][j] = vcost[i][j];
+    - daca vcost[i][j]==vbudget[i][j]
+        =>  vbudget[i][j]=vcost[i][j];
+            vprice[i][j]=vcostRes[i][j] + 1;
+     Daca in urma actualizarilor 
+    - vprice[i][j]<Pmin 
+        =>  vprice[i][j]=(vprice[i][j]>Pmin)?vprice[i][j]:Pmin;      
+    - vprice[i][j]>Pmax
+        =>  vresource[i][j]=1-vresource[i][j];
+            vbudget[i][j]=Pmax;
+            vprice[i][j]=(Pmin+Pmax)/2;
+ 
+Complexitate varianta neoptima : O(T * N ^4 )
+          
+
+Masuri de performanta:
+varianta seriala
+
+N=100, T=50
+real	2m42.832s
+user	2m42.790s
+sys	0m0.010s
+=>162 sec
+
+N=50, T=500
+real	1m31.743s
+user	1m31.717s
+sys	0m0.003s
+=>91 sec
+
+8 threaduri dynamic  schedule chunk 10
+
+N=100, T=50
+real	0m20.789s
+user	2m45.725s
+sys	0m0.018s
+=>S=162/22=8.1
+
+N=50, T=500
+real	0m11.762s
+user	1m33.867s
+sys	0m0.019s
+=>S=91/11=8.27
+
+4 threaduri dynamic  schedule chunk 15
+N=100, T=50
+real	0m40.993s
+user	2m43.867s
+sys	0m0.022s
+=>S=162/40=4.05
+
+N=50, T=500
+real	0m23.171s
+user	1m32.541s
+sys	0m0.011s
+=>S=91/23=3.956
+
+2 threaduri dynamic  schedule chunk 5
+
+N=100, T=50
+real	1m21.757s
+user	2m43.466s
+sys	0m0.003s
+=>S=162/81=2
+
+N=50, T=500
+real	0m46.102s
+user	1m32.173s
+sys	0m0.004s
+=>S=91/46=1.9
+
+1 thread dynamic schedule chunk 10
+
+N=100, T=50
+real	2m42.973s
+user	2m42.925s
+sys	0m0.010s
+=>S~1 ; se observa ca e mai rapida varianta seriala(cu 0.1 s)
+
+N=50, T=500
+real	1m31.476s
+user	1m31.448s
+sys	0m0.007s
+varianta seriala si paralela au aproximativ acelasi timp S~1
+
+8 threaduri static 7
+
+N=100, T=50
+real	0m20.694s
+user	2m45.270s
+sys	0m0.011s
+=>S=162/20=8
+
+4 threaduri static 12
+
+N=100, T=50
+real	0m40.996s
+user	2m43.894s
+sys	0m0.010s
+=>S=162/40=4
+
+2 threaduri static 20
+
+N=50 , T=500
+real	0m46.091s
+user	1m32.147s
+sys	0m0.009s
+=>S=91/46=1.9
+
+2 threaduri guided chunk 30
+N=50, T=500
+real	0m46.107s
+user	1m32.179s
+sys	0m0.008s
+=>S=91/46=1.9
+
+8 threaduri guided chunk 5
+N=100, T=50
+real	0m20.727s
+user	2m45.356s
+sys	0m0.020s
+=>162/20=8.5
+
+Se observa ca in general varianta paralela e cu mult mai rapida ca cea seriala.
+Am atasat in arhiva si scriptul de rulare pe cluster.

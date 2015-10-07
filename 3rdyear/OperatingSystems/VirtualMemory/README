@@ -1,0 +1,38 @@
+DUMITRESCU EVELINA 331CA
+TEMA 3 SO Linux
+
+Arhiva contine fisierele
+-sursa vmsim.c ce contine interfata bibliotecii
+      common_lin.c ce contine wrappere peste functiile Linux
+-header util.h, debug.h,common.h
+Implmentare structuri
+    - am folosit un vector de structuri ce contine informatiile pentru
+    o noua zona de memorie alocata
+        * un vector pentru RAM frames
+        * un vector pentru virtual pages
+        * numar frameuri
+        * numar pagini virtuale
+        * adresa start + RAM & SWAP handlers in structura map
+
+Implementare metode
+    * w_boolean_t vmsim_init(void)
+        -initializare dimensiune tabela de alocari
+        -schimbare handler pt SIGSEGV
+    * w_boolean_t vmsim_cleanup(void)
+        - eliberare memorie
+        - setare handler vechi pt SIGSEGV
+    * w_boolean_t vm_alloc(w_size_t num_pages, w_size_t num_frames, vm_map_t *map)
+        - crearea unei noi intrari in tabela de alocari,creare handlere pt RAM & SWAP,
+        initializare vectori de pagini fizice si virtuale
+        - o noua intare este initializata cu metoda init_entry
+    * w_boolean_t vm_free(w_ptr_t start)
+        - inchidere handlere pt SWAP si RAM
+        - eliberare memorie vectori de pagini virtuale + fizice
+        - stergere intrare din tabela de alocari
+    * vmsim_exception_handler(int sig, siginfo_t *siginfo, void *aux)
+        - daca semnalul captat nu e SIGSEGV, atunci se foloseste vechiul handler
+        - altfel, se parcurge tabela de intrari, se determina carei
+        intrari apartine adresa care a cauzat page faultul
+        -se determina pagina
+        - se verifica starea paginii si functie de stare se fac actiunile
+        de demand paging, swap in/out

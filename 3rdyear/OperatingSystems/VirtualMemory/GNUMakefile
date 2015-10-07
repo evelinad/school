@@ -1,0 +1,10 @@
+CFLAGS = -Wall -g -fPIC
+
+build: libvmsim.so
+common_lin.o: common_lin.c
+vmsim.o: vmsim.c
+libvmsim.so: vmsim.o common_lin.o
+	gcc -shared vmsim.o common_lin.o -o libvmsim.so
+clean:
+	rm -f *.o *.so
+	

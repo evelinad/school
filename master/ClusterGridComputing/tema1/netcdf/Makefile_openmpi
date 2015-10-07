@@ -1,0 +1,13 @@
+run:
+	/opt/lib/mpi/openmpi-1.8.4-gcc/bin/mpirun --allow-run-as-root -np 2 --hostfile machines ./test openmpi
+clean:
+	rm -rf test
+build:
+	/opt/lib/mpi/openmpi-1.8.4-gcc/bin/mpicc -Wall \
+	-lnetcdf \
+	-Wl,-rpath=/opt/lib/netcdf/netcdf-4.3.3.1-openmpi/lib \
+	-L/opt/lib/netcdf/netcdf-4.3.3.1-openmpi/lib \
+	-I/opt/lib/netcdf/netcdf-4.3.3.1-openmpi/include \
+	-I/opt/lib/mpi/openmpi-1.8.4-gcc/include \
+	-I/opt/lib/hdf5/hdf5-1.8.14-openmpi/include \
+	test.c -o test

@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<project name = "authorization" basedir = "." default = "run">
+	<property name = "srcDir" value = "src"/>
+	<property name = "buildDir" value = "build"/>
+	<property name = "classesDir" value = "${buildDir}/classes"/>
+	<path id = "project_classpath">
+		<pathelement location = "${classesDir}"/>
+	</path>
+	
+	<target name = "clean">
+		<delete dir = "${buildDir}"/>
+		<delete file = "banned_encrypted"/>
+	</target>
+	<target name = "compile">
+		<mkdir dir = "${classesDir}"/>
+		<copy todir = "${classesDir}">
+			<fileset dir = "${srcDir}" excludes = "**/*.java"/>
+		</copy>
+		<javac debug = "on" srcdir = "${srcDir}" destdir = "${classesDir}" classpathref = "project_classpath">
+			<compilerarg value = "-Xlint"/>
+		</javac>
+	</target>
+	
+	<target name = "run" depends = "compile">
+		<java fork = "true" classname = "AuthServer" classpathref = "project_classpath"/>
+	</target>
+</project>

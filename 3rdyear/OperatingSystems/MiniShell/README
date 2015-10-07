@@ -1,0 +1,32 @@
+DUMITRESCU EVELINA 331CA
+Tema1SO
+
+Arhiva contine fisierele:
+	* utils-lin.c
+	* utils.h
+	* main.c
+	* parser.h
+	* parser.tab.c
+	* parser.yy.c
+	* parser.l
+	* parser.y
+	
+Implementare:
+* metoda parse_command
+		- daca cmd contine o variabile de mesiu, atunci aceasta trebuie setata
+		- daca este o comanda obisnuita, o execut prin functia parse_simple	
+	* daca operatorul comenzii este de tip secvential execut parse_command
+	 pt cmd1 si apoi parse_command pt cmd2
+	* daca operatorul comenzii este de tip paralel execut cele 2 comenzi in paralel
+	* daca operatorul comenzii este de tip && execut mai intai cmd1 daca rezultatul
+	executiei comnezii este 0 execut si cmd2
+	* daca operatorul comenzii este de tip || execut mai intai cmd1 daca rezultatul
+	executiei comnezii este diferit de 0 execut si cmd2
+* metoda parse_simple
+	* daca este comanda de tip exit/quit => returnez SHELL_EXIT si ies din bucla 
+	for(;;)din start_shell()
+	*daca este comanda cd apelez chdir pt schimbarea directorului curent
+	* altfel creez procesul copil (fork()),fac redirectarile necesare(do_redirect()),
+	apelez execv(),astept procesul copil waitpid,
+	restaurez file descritptorii (restore_fd),returnez exit status
+

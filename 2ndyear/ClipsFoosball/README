@@ -1,0 +1,27 @@
+Evelina Dumitrescu 321CA
+Tema 3 PP
+
+
+Ideea/strategia de implementare
+  Sunt 8 directii de explorare. Fiecare directie are asociata cate 2 functii
+    - daca ma aflu pe o pozitie cu men 
+        => nu am nicio restrictie, pot sa ma duc oriunde(spatiu liber/tot men)
+        => trebuie insa sa am grija sa pastrz directia pe acre am venit           
+    - daca nu am aflu pe pozitie cu men
+        => nu am restrictii in privinta directiei pe acre ma duc
+        => trebuie insa sa am piese men in imediata vecinatate
+  
+  ---------------------------------------------
+  |jump_up_left  |  jump_up  |jump_up__right  | 
+  ---------------------------------------------
+  |  jump_left   |    Bila    | jum_right     |
+  ---------------------------------------------
+  |jump_down_left| jump_down | jump_down_right|
+  ---------------------------------------------
+  
+   Functiile functie, cleanup3 cleanup2 sunt pt stergerea faptelor.
+   Functia winwin determina daca un world este  solutie.  
+
+
+Observatie:
+Rularea la testele 33,19 si 28 dureaza mult (30 min/test) pentru ca nu folosesc retract pe parcurs.

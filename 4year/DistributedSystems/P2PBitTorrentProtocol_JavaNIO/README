@@ -1,0 +1,39 @@
+Dumitrescu Evelina Tema 4 SPRC
+
+Infrastructura
+    - nod central care primeste cereri de upload/download/own de la clienti
+    - clientii; pentru fiecare client am creat cate 2 threaduri
+            * un thread server folosit pentru a asculta cereri de descarcare a 
+            fragmentelor de fisiere
+            * un thread client ce initiaza aceste cereri 
+Mesaje
+    - dintre nod central si client
+        1. upload <nume fisier> <dimensiune fisier> <dimensiune fragment> <hostname peer server > <port peer server>
+        2. download <nume fisier>
+            la mesajul de download nodul central raspunde cu o lista de addrese 
+            ale statiilor ce detin fragmentele din fisierul cerut(cate o intrare
+            din lista pt fiecare fragment)
+            clientul distribuie in mod egal cererile de descarcare celorlate statii
+            si pentru fiecare statie in parte creeaza cate un thread pentru schimbul 
+            de mesaje; la initializare fiecare thread primeste o lista de fragmente
+            ce trebuie trimise inapoi
+            
+        3.  own <nume fisier> <numar fragment>
+           Mesajul own este folosit pt a anunta imediat nodul central despre 
+           descarcarea unui nou fragment de fisier
+   - dintre clienti
+        1. <nume fisier>  <fragment>
+        statia ce proceseaza cererea raspunde cu fragmentul de fisier cerut
+        
+        Fiecare mesaj este format din 4096 bytes, primii 4 bytes sunt folositi 
+        pentru dimensiunea mesajului.
+                
+Am realizat in intregime tema folosind java nio.
+Schimbul de mesaje intre  clienti se face in mod neblocant, 
+iar comunicarea cu nodul central se face blocant.
+De aseamenea am facut cateva modificari si claselor puse pe site.
+Pentru rulare:
+    ant build
+    ant run-server
+    ant run-client1
+    ant run-client2

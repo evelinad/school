@@ -1,0 +1,81 @@
+Dumitrescu Evelina 
+331CA
+Tema2 ASC
+
+
+Continut arhiva
+	* dsymv_plain_blas.c pentru primele 2 cerinte
+	* dsymv_optimized pentru cerinta 4
+	* run.sh script de lansare joburi pe cluster
+	* plot_script.pg script pentru generare grafic
+	* dsymv_performance.jpeg graficul cu rezultatele obtinute pe fiecare 
+	arhitectura
+	* MakefileNehalem, MakefileOpteron, MakefileQuad
+	* exec_optimized.sh, exec_plain_blas.sh exec_optimized_flags.sh pentru 
+	executia fisierelor binare
+	* README
+	
+Rezolvarea cerintelor
+	Y[] = alfa * A[][] * X[] + beta * Y[].
+          unde:
+             X, Y - vectori (double) de dimensiune N
+                A - matrice (double) de dimensiune N * N
+       alfa, beta - coeficienti (double).
+    Fiecare executabil primeste ca parametru dimensiunea matricilor/vectorilor 
+si numele fisierului in care va scrie durata de executie a inmultirii. 
+Parametrul SIZE si numele fisierului de output sunt definite in scripturile 
+exec_optimized.sh, exec_plain_blas.sh exec_optimized_flags.sh.
+	Continutul matricilor/vectorilor/scalarilor este generat random.
+	Timpul de executie l-am obtinut cu functia gettimeofday si masoara in ms 
+portiunea de cod in care este executata operatia.
+
+	1.Prima si a doua cerinta
+	- pt prima cerinta am folosit 2 foruri in care am inmultit matricea A cu vectorul X, 
+	rezultatul este inmultit cu scalarul alfa; dupa aceea se aduna vectorul y * beta;
+	- cerinta a 2 a contine apelul atl_dsymv()
+	- am folosit o variabila VERBOSE; in functie de valoarea acesteia, se afiseaza 
+	pt debug continutul matricii, al vectorilor, scalarii + rezultatul inmultirii; 
+	implicit este setata la 1=> sunt verficate daca rezultatele dintre 
+	inmultirea facuta 'de mana' si rezultatul obtinut cu atlas coincid
+	- matricea este liniarizata pt apelul de atlas
+	
+	2.Cerinta a 4 a
+	- pentru optimizarea de mana am folosit mecanisme de reducerea timpului de acces
+	 la adresarea elementelor matricei(pointer la adresa de inceput a mattricei, 
+	 variabile de tip register)
+	- pentru optimizarea facuta de compilator am folosit flagurile:
+		- O3 pt nivel maxim de optimizare
+		- mfpmath=see pt setul de instructiuni sse
+		- minline-all-stringops inlocuieste memset cu apeluri buildin gcc
+        - mxc16  util pentru contori mari folositi de mai multe coreuri
+        - mpc64  scade precizia de reprezentare a numerelor in virgula mobila
+        - m64  pt tipul de arhitectura
+        - ftree-loop-distribution pt distribuirea operatiilor din loop;
+        permite vectorizare si paralelizare
+		-fprefetch-loop-arrays pt generrare instriciuni de prefetch
+		-falign-functions 
+		-falign-loops
+		
+	3.Cerintele 3 si 4
+	- rezultatelor din fisierele out_plain_blas,out_optimized, out_optimized_flags	
+	sunt centralizate in fisierel plain.dat, blas.dat, optimized.dat, optimized_flags.dat
+	si contin rezultatele pt fiecare cerinta pt fiecare arhitectura in parte
+	
+Concluzii referitoare la arhitecturi:
+            
+   	- Nehalem:
+       - a avut timpii cei mai buni pentru toate cele 4 variante  
+            fiind mai perfomant decat celelalte arhitecturi	
+
+    - Opteron:
+       - a avut al doilea timp ca performanta pt 3 dintre variante 
+       - pt varianta optimizata de mana am obtinut timpul cel mai mare
+       dintre cele 3 arhitecturi
+            
+    - Quad:
+       - a avut timpii cei mai mari pentru varianta de baza
+      
+		
+		
+	
+

@@ -1,0 +1,15 @@
+#! /bin/bash
+#PBS -N testjob-mpich
+#PBS -o testjob-mpich.out
+#PBS -e testjob-mpich.err
+#PBS -M root@mosix1
+#PBS -q linux-spool
+
+
+cd /home/ccg/netcdf/
+
+PATH=/opt/lib/mpi/mpich-3.1.4-gcc/bin:$PATH \
+LD_LIBRARY_PATH=/opt/lib/mpi/mpich-3.1.4-gcc/lib:/opt/lib/netcdf-4.3.3.1-mpich/lib:/opt/lib/hdf5/hdf5-1.8.14-mpich/lib:$LD_LIBRARY_PATH \
+/opt/lib/mpi/mpich-3.1.4-gcc/bin/mpirun ./test mpich
+
+exit 0

@@ -1,0 +1,18 @@
+#
+# Author: Heri
+# 
+# CC=gcc
+#
+CC=gcc
+LD_FLAGS=-lcblas -latlas -lm -L/opt/tools/libraries/atlas/3.10.1-opteron-gcc-4.4.6/lib
+CC_FLAGS=-O3  -minline-all-stringops -ftree-loop-distribution  -ftree-vectorize -fprefetch-loop-arrays -falign-functions -falign-loops -Wall -mfpmath=sse  -mcx16 -mpc64 -m64 -msse4a
+build:
+	$(CC) dsymv_plain_blas.c  $(LD_FLAGS) -Wall -o dsymv_plain_blas
+	$(CC) dsymv_optimized.c $(LD_FLAGS) -Wall -o dsymv_optimized
+	$(CC) dsymv_optimized.c $(LD_FLAGS)  -o dsymv_optimized_flags $(CC_FLAGS) -Wall
+	
+
+clean:
+	rm -f dsymv_optimized dsymv_plain_blas dsymv_optimized_flags
+	rm -f *.o
+	rm -f out_plain_blas out_optimizat out_optimized_flags

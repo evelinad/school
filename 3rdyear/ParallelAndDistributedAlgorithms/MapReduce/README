@@ -1,0 +1,39 @@
+Dumitrescu Evelina Tema2 APD
+
+
+1.Implementare
+Citirea fisierului de intrare se face cu ajutorul BufferedReader.
+Fisierele de procesare se citesc cu RandomAccesFile in fragmente de cate D octeti.
+
+In clasa WorkPool retin :
+    * lista de maptaskuri ce trebuie procesate in maplinkedlist
+    * rezultatul procesarii maptaskurilor in reduce1linkedlist
+    * rezultatul procesarii reducetaskurilor pt etapa 1 in reduce12linkedlist
+    * cuvintele sunt sortate dupa numarul de aparitii si sunt introduce in reduce21linkedlist primele N
+    * solutiile finale sunt pastrate in reduce22linkedlist 
+  
+In MapChunk sunt memorate numele fisierului din care face parte fragmentul.
+In MapSolution este memorat numele fisierului si lista de hashmapuri pt cuvinte 
+si nr aparitii ale lor pt fiecare fragment in parte.
+In Solution este memorat  numele fisierului + hashmapul cu toate cuvintele + nr de aparitii ale lor.
+Procesarea unei solutii pt etapa de map  consta in impartirea fragmentului de fisier in cuvinte,
+creearea unui hashmap cu acestea + numarul de aparitii in fragmentul de fisier. Mai departe fragmentul procesat 
+reprezinta o intrare in lista de taskuri de procesat din reduce1linkedlist.
+In prima etapa, procesarea unei solutii pt reduce1linkedlist consta in unificarea tuturor hashmapurilor 
+ce apartin aceluiasi fisier si adunarea numarului  de aparitii pt cuvinte.
+Cuvintele sunt sortate dupa frecventa si noile intrari de tip Solution pt etapa 2 de reduce 
+din  reduce21linkedlist contin un array din primele N cuvinte ca frecventa.
+Sunt selectate fisierele care contin toate cele NC cuvinte in cele N cuvinte 
+cu frecventele cele mai mari. 
+Sunt afisate primele X fisiere ca relevanta + cele NC cuvinte & frecventele lor.
+
+2.Continut arhiva
+Main.java
+Data.java 
+WorkPool.java 
+Worker.java 
+MapSolution.java 
+MapChunk.java 
+Solution.java
+
+

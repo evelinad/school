@@ -1,0 +1,39 @@
+Dumitrescu Evelina Tema 1PA
+
+
+1. Implementare
+  - citesc stringul de la tastatura si elimn spatiile
+  - initializez matricea de costuri pentru calculul distantei levenstein
+  - creez in functia minimLevenstein o matrice patratica n * n si 
+    aplicand programarea dinamica completez aceasta matrice 
+    cu cel mai apropiat sir de caractere de sirul meu initial 
+   - aplica algoritmul Levenstein pentru sirul de caractere dintre sirul de pe pozitiile i si j
+      si verific daca acest sir este are costul mai mic decat costul sirului obtinut 
+      prin concatenarea sirurilor de pe pozitiile [i, k] si [k + 1 ,j]
+    - in functie de rezultatul comparatiei completez matricea cu sirul obtinut la pasul acesta
+    => pe pozitia m[0,l-1] voi avea sirul final
+    
+    
+2.Algoritmi utilizati
+  * Levenstein
+      - construiesc o matrice de m * n unde 
+            m == dimensiunea dictionarului 
+            n == dimensiunea expresiei
+      - elemenrul price[i][j] va retine va retine numarul nimin al transformarilor primelor i
+        caractere ale sirului A in primele j caractere ale sirului j       
+      - cost[i,j] = | cost[i-1,j-1] daca A[j] == B[j]
+                    | 1 + min{cost[i-1][j-1], cost[i][j-1], cost[i-1][j]} altfel             
+      - complexitate : O(n ^ 2)
+  * pentru corectie sir (asemanator parantezarii matricelor)
+      - am folosit tehnica programarii dinamice
+      - construiesc o matrice superior triunghiulara
+          m[i][i] = |minimLevensetin(expresie.substring[i,i])
+                    |min{minimLevensetin(expresie.substring[i,k]) + minimLevensetin(expresie.substring[k+1,j])} i<=k<=j
+      - complexitate : O(n ^ 3)
+  * optimizari : 
+      - iau in cosiderare in functia minimLevensetin doar cuvintele din dictionar care 
+        au maxim +/- 2 caractere in plus fata de sirul primit ca parametru
+         
+  
+  
+  

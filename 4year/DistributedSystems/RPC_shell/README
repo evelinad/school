@@ -1,0 +1,36 @@
+DUMITRESCU EVELINA 341C3
+Tema 1 SPRC
+
+Pentru trimiterea unor comenzi si receptionarea outputului/mesajelor de la server
+am definit 2 structuri request/response.
+struct request
+{
+	words command;
+	struct request* next;
+};
+
+
+struct response
+{
+	words output;
+    words message;
+	int retcode;
+	struct response* next;
+};
+
+Clientul
+- afiseaza mesaj de initializare shell+director curent
+- citeste si parseaza inputul, formeaza lista de comenzi
+- pentru o singura comanda se apeleaza exec-simple_command, 
+  altfel exec_command
+- se afiseaza rezultatul executiei comenzilor, eventualele 
+  mesaje de eroare/executiei comenzilor cu succes  
+  
+Serverul
+Contien functiile:
+- get_remotedir_1_sv pt afisare director curent  
+- execute_command_1_svc pentru executia mai multor comenzi
+- execute_simple_command_1_svc pt executai unei singure comenzi
+
+
+

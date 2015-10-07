@@ -1,0 +1,82 @@
+DUMITRESCU EVELINA 331CA
+Tema4APD
+
+0.Implementare
+    Am preferat sa afisez in fisiere de logging toate mesajele.
+    Mesajele sunt impartite pe 4 sectiuni:
+        - initialize data
+        - build topology
+        - build messgaes
+        - election
+    Am creeat functii speciale de afisare.
+    Fiecare nod are propriul fisier de logging (node+rank).
+    Am testat in general pe topologia data ca exemplu pe care am adaugat muchii suplimentare
+    ca sa verfic corectitudinea algoritmului si pe grafuri cu cicluri. 
+
+1.Initializare date    
+    Citesc matricea de topologie.
+    Mesajele sunt introduse initial intr-un vector general de mesaje(pt toate ndourile).
+    Nodul cu rank 0 trimite la toate nodurile cate mesaje are de trimis fiecare, 
+    urmand ca apoi sa fie trimise si mesajele pe rand.
+    Fiecare nod isi pastreaza un vector propriu cu mesajele.
+    Un mesaj contine pe pozitia 0 (intr-un char) nodul destinatie
+    si de pe pozitia 1 .. n mesajul propriu-zis.
+    
+    
+            
+2.Stabilirea topologiei
+    Am folosit algoritmul din laborator.
+    Fiecare nod rank isi cunoste vecinii direct conectati (adica linia topology[rank]).
+    Initial nodul cu rank 0 trimite mesaje PROBE(sonda) catre toti vecinii direct conectati.
+    Nod parinte este considerat nodul de la care se primeste primul un astefl de mesaj.
+    Fiecare nod cu rank diferit  de 0 asteapta sa primesca mesaje ECHO de la toti vecinii direct
+    conectati mai putin de la parinte. Daca primeste un mesaj diferit de ECHO (PROBE) raspunde 
+    cu ecou vid. 
+    Am pastrat cu un vector ports care reprezinta interfetele/ porturile neblocate (pe care nu s-a primit EMPTY_ECHO)
+    -> mecanism simlar STP-ului
+    Matricea mports o folosesc pt transmiterea de mesaje. 
+    Reprezinta arborele AMA al topologiei si este formatra pe baza vectorilor ports. 
+    Mecanismul de transmitere mesaje este detaliat in sectiunea urmatoare.
+    In fisierele de log este afisata matricea initiala, mesajele care sunt trasmise
+    vectorul de porturi , matricea AMA si topologia finala.
+
+2. Trimitere mesaje
+    Este rulat BFS pt stabilirea next hopurilor
+    (pe baza distantei minime pana la nod destinatie) de catre fiecare nod in parte. 
+    Next hopurile sunt retinute in vectorul next hop.
+    Fiecare nod trimite parintelui mesajele si acestea
+    sunt forwardate mai departe catre nodul radcina(0).
+    Urmand matricea AMA mports si vectorul next_hop 
+    acestea sunt trasmise pe arbore catre nod destinatie.
+    Mesajele de broadcast sunt logate in fiecare fisier (sunt destinate tuturor nodurilor).
+    Am ales aceasta varianta de implementare intrucat nu am avut timpul
+    necesar sa caut alta varianta mai eleganta.
+    Cand nodul cu rank 0 nu mai are ce trasmite trimite un mesaj de finish.
+    Fiecare nod cand primeste un astfel de mesaj iese din bucla while(1) si trimite 
+    mai departe mesajul de FINISH la copii.
+    In fisierele de log se gaseste lista de mesaje trimise/receptionate.
+    
+3.LEADER ELECTION    
+    Sunt alesi leaderii cu numar maxim de voturi si 1st & 2nd leader sunt diferiti.
+    Fiecare nod frunza trimite catre parinte un vector ce contine 1 pe pozitia 
+    nodului ales (nodul ales este diferit de rankul sau).
+    Mai departe, nodurile intermediare fac propria alegere 
+    si updateaza vectorul de election primit de la fii.
+    Rezultele alegerilor de la fii se aduna.
+    In final, nodul cu rankul 0 alege leaderii.
+    Mesajele de logging pt decizia luata de rankul 0 sunt de tipul:
+
+    lista cu voturile candidatilor a mea este: 
+    0 0 0 9 3 0 0 0 0 0 0 0 
+
+    am ales leaderul 3  pentru etapa 1
+
+    lista cu voturile candidatilor a mea este: 
+    0 0 0 3 29 0 15 0 0 0 0 0 
+
+    am ales leaderul 4  pentru etapa 2
+    
+    
+        
+
+    

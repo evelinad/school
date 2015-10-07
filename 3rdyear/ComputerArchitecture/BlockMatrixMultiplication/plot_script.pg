@@ -1,0 +1,17 @@
+set terminal jpeg medium
+set output "dsymv_performance.jpeg"
+set grid
+set title "Matrix-Vector multiplication performance"
+set ylabel "Time [ms]"
+set xlabel "nehalem                  opteron                   quad"
+set xrange [0:35]
+set yrange [0:10000]
+set style line 1 lc rgb "yellow"
+set style line 2 lc rgb "blue"
+set style line 3 lc rgb  "red"
+set style line 4 lc rgb "green"
+plot   "plain.dat" using ($1 + 1):2:(0.8) with  boxes fs solid 0.8 title "Plain version" ls 1,\
+"blas.dat" using ($1 + 1):2:(0.8) with  boxes fs solid 0.8 title "Blas version" ls 2,\
+"optimized.dat" using ($1 + 1):2:(0.8) with  boxes fs solid 0.8 title "Optimized version" ls 3,\
+"optimized_flags.dat" using ($1 + 1):2:(0.8) with  boxes fs solid 0.8 title "Optimized with flags version" ls 4
+

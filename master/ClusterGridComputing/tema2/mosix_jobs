@@ -1,0 +1,1 @@
+cd /home/ccg/tema2 && make clean && make && ./tema /home/ccg/tema2/poze/map_x1-130000_y1-235000_x2-134999_y2-239999.jpg /home/ccg/tema2/out.nc >> /home/ccg/tema2/mosix.out

@@ -1,0 +1,71 @@
+DUMITRESCU EVELINA 331CA
+Tema4 ASC
+
+
+Detalii legate de implemenare:
+    Am rezolvat doar primele 2 puncte:
+        1) process 2 lines 
+        La fel ca la process_image_simple , doar ca se prelucreaza buffere de cate 2 linii
+        2) dubble buffering
+        Dupa ce se proceseaza bufferul curent, tagurile si adresele bufferelor curente
+        si a celui din spate se interschimba, se initiaza urmatorul transfer apoi se
+        asteapta sa se finalizeze transferul bufferului din spate, care tocmai a
+        devenit bufferul curent.
+
+Rezultate obtinute pentru 100 de frameuri:
+1 SPU
+    - simple
+        Scale time: 2.094717
+        Total time: 7.278576
+    - 2 lines
+        Scale time: 1.560574
+        Total time: 7.518984
+        => 25.53 % mai rapid
+    - double buffering
+        Scale time: 1.776666
+		Total time: 7.533804
+		=> 15.31 % mai rapid
+        
+
+2 SPU
+    - simple
+        Scale time: 1.107444
+        Total time: 6.522794   
+    - 2 lines
+        Scale time: 0.826167
+        Total time: 6.689234
+		=> 25.81 %mai rapid
+    - double buffering
+        Scale time: 0.935913
+        Total time: 6.539169
+		=> 15.5 % mai rapid
+
+
+4 SPU
+    - simple
+        Scale time: 0.641605
+        Total time: 7.142562
+    - 2 lines
+        Scale time: 0.479566
+        Total time: 6.833536   
+		=> 25.7 % mai rapid		
+    - double buffering
+        Scale time: 0.546650
+        Total time: 6.526464
+		=>15.5 % mai rapid
+   
+
+8 SPU
+    - simple
+        Scale time: 0.343369
+        Total time: 6.092312
+    - 2 lines
+        Scale time: 0.277869
+        Total time: 5.724502
+		=> 18.5 % mai rapid
+    - double buffering
+        Scale time: 0.287823
+        Total time: 6.806505
+		=> 15.46 % mai rapid
+		
+

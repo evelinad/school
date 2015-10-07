@@ -1,0 +1,58 @@
+  SO Assignment 2 2013
+  MPI
+  Dumitrescu Evelina 331CA
+
+Continut arhiva 
+	* fisiere sursa : 
+		sompi.c
+		tema2.c
+		unix_queue.c
+	* fisiere header :
+		check.h
+		mpi.h
+		common.h
+		utils.h
+		mpi_err.h
+		generic_queue.h	
+	* Makefile
+	* README	
+
+Implementare
+	Pentru transmitere de mesaje intre procese am folosit cozi de mesaje.
+	Am folosit implementarea din laboratorul 5.
+	In tema2.c creez -np procese ale executabilului dat ca parametru.
+    Atunci cand este lansat in executie,noul proces primeste ca parametri 
+    	- numarul de procese create
+    	- rankul sau
+    	- pid-ul
+    Aceastea sunt necesare pentru initializare mediului mpi	si obtinerea cozii
+	pentru receptionare mesaje.
+
+
+	In sompi.c sunt functiile pentru biblioteca sompi.so.
+	* MPI_Init 
+		- creez coada de receptionare mesaje
+		- initializez mediul mpi
+
+	* MPI_Finalized 
+		- verific daca a fost apleta functia MPI_Finalize
+
+	* MPI_Initialized
+		- verific daca a fost apleta functia MPI_Init
+	* MPI_Finalize
+		- sterg referinta catre coada de receptionare mesaje
+		- eliberez memoria ocupata de mpi_comm_world
+
+	* MPI_Comm_rank
+		- returnez rankul procesului
+		
+	*MPI_Comm_size
+		- returnez numarul total de procese
+	*MPI_Recv
+		- astept sa primesc mesaje pe coada de receptionare
+		- daca statusul este diferit de MPI_STATUS_IGNORE atunci nu actualizez vparametrul status
+	* MPI_Send
+		- obtin coada corespunzatoare procesului destinatie
+		- trimit mesajul pe aceasta coada
+
+	In cadrul fiecarei functii in parte verific daca parametri dati au valori corecte.

@@ -1,0 +1,62 @@
+DUMITRESCU EVELINA Tema2 CPL
+
+Detalii legate de implementare:
+    - creez instantele claselor pentru tipurile de date primitive
+        Int String void (none) Object IO
+    - parcurg arborele AST
+        - verific cazurile de mostenire ciclica,  si parcurg clasele incepand cu
+        cele care mostenesc tipul Object sau un tip deja cunoscut        
+        - indentific cazurile in care atributele/metodele/clasele
+        sunt decalarte  de  doua ori
+        - parcurg lista de feature-uri dintr-o clasa si le memorez
+        - copiez din clasa parinte metodele/atributeled deja declarate
+        in clasa copil
+        - reparcurg lista de data aceasta pentru a le prelucra
+        - in cazul atributelor evaluez tipul expresiei de initializare,
+        iar in cazul metodelor evaluez tipul expresiilor din interiorul lor
+        - in metoda doType evaluez tipul fiecarei expresii din metoda
+        1. Addition
+            - daca ambele expresii sunt de tip Int=> Tipul e Int
+            - daca una din expresii e de tip String si cealalta 
+                nu e de tip Int/Void/String/Dispatch/StaticDispatch generez exceptie
+            - altfel tipul e String
+         2. EqualCoparison
+            - este necesar sa fac cast in situatiile in care o expresie e de  tip Void,
+            una de tip Int si cealalta de tip String
+         3.Ceilalti operatori aritmetici au default tipul Int
+         4. SubString are tipul String
+         5. Self
+            - setez simbolul variabilei la care se refera la selful metodei
+            - setez tipul data la tipul clasei
+            - e necesar un cast la tipul Object
+         6. Simbol
+            - verific mai intai blocurile temporare din clasa/metoda
+            parametri formali si atributele la final
+         7. WhileStatement
+            - are tip (none)
+            - evaluez tipul conditiei, expresiilor din corpul while
+         8.IfStatement
+           - evaluez tipul blocurilor ifexpr, thenexpr, tipul ifului(vezi manual LCPL)
+         9.New Object 
+            - setez tipul data la referinat clasei la care se refera tipul lui new object  
+         10.Dispatch/StaticDispatch
+         - evaluez expresiile pt obiect, method, parametri, selfType pt StaticDispatch
+         11.Assignment
+            - identific varaiabila la care se refera assignmentul si evaluez 
+            expresia assignmentului
+         12.cast
+         13.LocalDefinition   
+            - adaug o noua declarare temporara de variabila locala
+            - daca Scope e tot o declarare locala reapelez doLocaldefinition, altfel daca e de tip block
+            evaluez expresiile din Block
+        
+        - mi-am definit 3 clase ajutatoare
+            * LCPLProgramClass in care memorez lista de atribute dintr-o clasa, 
+            lista de metode si blocurile temporare de variabile locale; pentru 
+            a prelucra blocurile temporare folosesc o stiva; imediat dupa ce
+            termin de prelucrat un bloc(instructiune de tip if/while) extrag ultima inserare din stiva
+            * LCPLPMethod in care memorez variabilele locale nedeclarate in interiorul if/while
+            * LCPLClocalDefinition
+            
+        
+           

@@ -1,0 +1,14 @@
+run:
+	/opt/lib/mpi/mpich-3.1.4-gcc/bin/mpirun -np 2 -f machines ./test mpich
+clean:
+	rm -rf test
+build:
+	/opt/lib/mpi/mpich-3.1.4-gcc/bin/mpicc -Wall \
+	-lnetcdf \
+	-L/opt/lib/netcdf/netcdf-4.3.3.1-mpich/lib \
+	-Wl,-rpath=/opt/lib/netcdf/netcdf-4.3.3.1-mpich/lib \
+	-I/opt/lib/netcdf/netcdf-4.3.3.1-mpich/include \
+	-I/opt/lib/mpi/mpich-3.1.4-gcc/include \
+	-I/opt/lib/hdf5/hdf5-1.8.14-mpich/include \
+	test.c -o test
+

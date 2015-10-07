@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<project name = "client" basedir = "." default = "run">
+	<property name = "srcDir" value = "src"/>
+	<property name = "buildDir" value = "build"/>
+	<property name = "classesDir" value = "${buildDir}/classes"/>
+	<property name = "name" value = "user1"/>
+	<property name = "department" value = "MANAGEMENT"/>
+	<property name = "hostname" value = "localhost"/>
+	<property name = "port" value = "7001"/>
+	<path id = "project_classpath">
+		<pathelement location = "${classesDir}"/>
+	</path>
+	<target name = "clean">
+		<delete dir = "${buildDir}"/>
+	</target>
+	<target name = "compile">
+		<mkdir dir = "${classesDir}"/>
+		<copy todir = "${classesDir}">
+			<fileset dir = "${srcDir}" excludes = "**/*.java"/>
+		</copy>
+		<javac debug = "on" srcdir = "${srcDir}" destdir = "${classesDir}" classpathref = "project_classpath">
+			<compilerarg value = "-Xlint"/>
+		</javac>
+	</target>
+	
+	<target name = "run" depends = "compile">
+		<java fork = "true" classname = "Client" classpathref = "project_classpath">
+			<arg value = "${name}"/>
+			<arg value = "${department}"/>
+			<arg value = "${hostname}"/>
+			<arg value = "${port}"/>
+		</java>
+	</target>
+</project>

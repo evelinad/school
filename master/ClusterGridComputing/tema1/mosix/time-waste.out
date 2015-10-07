@@ -1,0 +1,11 @@
+i=0, val=1e+07, 45.987 ms elapsed!
+i=10, val=909091, 1035.21 ms elapsed!
+i=20, val=476191, 2174.33 ms elapsed!
+i=30, val=322581, 3387.89 ms elapsed!
+i=40, val=243902, 4525.37 ms elapsed!
+i=50, val=196078, 5773.02 ms elapsed!
+i=60, val=163934, 7003.39 ms elapsed!
+i=70, val=140845, 8140.65 ms elapsed!
+i=80, val=123457, 9353.37 ms elapsed!
+i=90, val=109890, 10567.9 ms elapsed!
+i=100, val=99009.9, 11792.9 ms elapsed!

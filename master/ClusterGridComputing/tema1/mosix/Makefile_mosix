@@ -1,0 +1,8 @@
+build:
+	gcc elapsed_time.c -o elapsed_time -Wall
+
+run:
+	mosrun ./elapsed_time &
+
+clean:
+	rm -rf elapsed_time

@@ -1,0 +1,13 @@
+Dumitrescu Evelina 341C3
+Tema0So2
+
+Detalii legate de implementare 
+
+Am definit functii noi pentru
+	* alocarea unui nod nou dintr-o lista
+	* stergerea tuturor nodurilor cu un anumit continut
+	* stergerea primului nod cu un anumit continut
+
+Am completat functiile existente pentru afisarea elementelor din lista 
+si pentru parsarea buferului de comenzi
+

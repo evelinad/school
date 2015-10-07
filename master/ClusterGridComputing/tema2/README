@@ -1,0 +1,7 @@
+Se foloseste scriptul run.sh pentru rularea joburilor. Ie ./run.sh mosix sau ./run.sh sau ./run.sh torque.
+In run.sh functia metrics() fac extragerea metricilor.
+Exemple de metrici in metrics_mosix si metrics_torque.
+Am folosit gsl pt blas.
+In metrics_mosix.csv si metrics_qsub.csv se afla metricile de la rulari.
+
+ip-uri 10.9.3.166 10.9.3.167 10.9.3.168

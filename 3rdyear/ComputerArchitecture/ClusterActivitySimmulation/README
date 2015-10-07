@@ -1,0 +1,36 @@
+DUMITRESCU EVELINA 331CA
+Tema1 ASC
+
+1.Implementare
+    1.1 Clasa Tasks
+        * reprezinta un task atribuit unui nod pentru returnarea unui element
+         din datastore
+         
+    1.2 Clasa NodeResponse
+        * reprezinta raspunsul unui nod la task
+        
+    1.3 Clasa ComputeMatrix
+        * este creat  un nou obiect la fiecare apel al metodei compute_matrix_block
+        si calculeaza blocul din matrice cerut
+        * metoda compute trimite requesturi celorlalte noduri pentru elementele 
+        necesare inmultirii si calculeaza blocul din matrice
+        * pentru un element m[i][j] sunt cerute din matriceaA  linia i
+        si din matriceaB  coloana j, cele 2 blocuri rezultante sunt stocate local
+        si apoi se realizeaza inmultirea
+        *metoda receive_response insereaza raspunsul unui alt nod pentru o cerere
+        
+    1.4 Clasa WatchThread
+        * ataseaza fiecarui nod la instantiere un thread pentru comunicarea 
+        intre noduri    
+        * metoda run : prelucreaza taskurile din lista  data_tasks, trimite o cere
+        catre datastore pentru elementul de pe pozitia (row, col) si 
+        insereaza un obiect de tip NodeResponse in lista de raspunsuri a nodului
+        * metoda receive_task insereaza un nou task
+
+
+2.Observatii:
+    * la testul 4 din cauza faprului ca tester.py creeaza prea multe threaduri
+    obtineam eroare ' thread.error: can't start new thread '
+    * pentru aceasta a trebuit sa setez din cod valoarea pentru stack size 
+    ('threading.stack_size(32*1024)')si sa modific valorile ulimit (ulimit -u unlimited)
+    

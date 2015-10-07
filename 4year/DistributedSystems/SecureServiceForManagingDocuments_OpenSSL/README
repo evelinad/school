@@ -1,0 +1,44 @@
+Dumitrescu Evelina 341C3
+
+    Arhiva contine 3 proiecte.
+    * server = serverul de departamenet
+    * authorization = serverul de autorizare
+    * client = clientul
+    * all.sh genereaza tot continutul necesar conexiunii ssl criptate 
+    
+    Pentru rulare/compilare/clean exista targeturile run/clean/compile.
+    Pentru a permite clientului sa primeasca comenzi de la tastatura trebuie folosit
+        java -cp build/classes/ Client <nume client> <departament> <hostname> <server port>
+    eg:
+        ./all.sh  auth
+        ./all.sh  server MANAGEMENT
+        ./all.sh  client gogu MANAGEMENT
+        ./all.sh  client gigel IT
+        server ant run -Dname=MANAGEMENT
+        client:  java -cp build/classes/ Client gogu MANAGEMENT localhost 7001
+        authorization server: ant run
+        
+     
+    Scriptul all.sh primeste ca parametri
+        * auth pentru serverul de autorizare
+        * client <nume> <departament> pentru client
+        * server <departament> pentru serverul de departamente
+        
+    
+    Detalii de implementare
+    Pentru fiecare comanda primita serveru interogheaza serverul de autorizare
+    Daca comanda contine cuvinte de tipul bomba, greva, virus, atunci serverul de autorizare
+    trece clientul in lista de clienti banned pentru 10 secunde(eg download bomba).
+    Unui client ii este permis sa inlocuiasca un fisier deja existent pe server
+    doar daca face parte din acelasi departament cu ownerul.
+    La download, un client poate descarca un fisier doar daca apartine unui
+    departament cu prioritate mai mica. Ordinea prioritatilor este:
+    MANAGEMENT(3), IT(2), HR(1) si ACCOUNTING(1).
+    Fisierul cu lista de fiisere uploadate este uploadedfiles si este tinut criptat in format base 64.
+    Fisierul cu lista de clienti banned este tinut in banned_encrypted.
+    
+         
+        
+        
+
+

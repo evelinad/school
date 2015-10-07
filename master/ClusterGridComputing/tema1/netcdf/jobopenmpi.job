@@ -1,0 +1,16 @@
+#! /bin/bash
+#PBS -N jobopenmpi
+#PBS -o jobopenmpi.out
+#PBS -e jobopenmpi.err
+#PBS -M root@mosix1
+#PBS -q linux-spool
+
+
+cd /home/ccg/netcdf/
+
+PATH=/opt/lib/mpi/openmpi-1.8.4-gcc/bin:$PATH \
+LD_LIBRARY_PATH=/opt/lib/mpi/openmpi-1.8.4-gcc/lib/opt/lib/hdf5/hdf5-1.8.14-openmpi/lib:/opt/lib/netcdf/netcdf-4.3.3.1-openmpi/lib:$LD_LIBRARY_PATH \
+/opt/lib/mpi/openmpi-1.8.4-gcc/bin/mpirun --allow-run-as-root -np 2 ./test openmpi
+
+
+exit 0

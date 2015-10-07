@@ -1,0 +1,22 @@
+DUMITRESCU EVELINA 341C3
+Tema1 CPL
+
+
+Implementare:
+Un program contine mai multe clase.
+Fiecare clasa contine structuri de tip method si attributeblock.
+Un atributeblock este format din mai multe expressi de tip declaration.
+O metoda este formata din mai multe blocuri localdefblock si expresii(generalexpresion).
+O regula pentru o metoda contine mai multi parametri formali, poate avea un return type(rettype)
+si espresii(methodexpression).
+Expressile generale sunt de tip dispatch, staticdispatch, cast, ifstatement, whilestatement 
+si cele aritmetice, substring,assignment.
+
+LCPLTreeBuilder.g : am impementat gramatica ce realizeaza parsarea si va
+genera arborele AST.
+
+LCPLTreeChecker.g : folosind regulile definite in LCPLTreeBuilder, am implementat 
+tree walkerul care   instantiaza  obiectele ce reprezinta fiecare
+instructiune in parte.
+
+

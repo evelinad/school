@@ -1,0 +1,12 @@
+Evelina DUMITRESCU
+321CA
+Tema 2 PP - Simulator in Haskell
+
+Strategie
+	Robotul parcurge matricea trecand mai intai prin locurile cu frecventa de vizitare mai mica; daca 2 locuri au aceeasi frecventa de vizitare, atunci prioritate are locul cu valoarea senzoului mai mare 
+
+Elementul de memorie
+	Contine lista pozitiilor precedente in care s-a dus robotelul, lista de (frecventa,senzor) a locurilor anterior vizitate + ultima pozitie
+ 		
+
+

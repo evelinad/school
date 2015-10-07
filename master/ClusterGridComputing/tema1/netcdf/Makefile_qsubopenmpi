@@ -1,0 +1,6 @@
+run:
+	qsub -l nodes=2 jobopenmpi.job
+clean:
+	rm -rf test
+build:
+	/opt/lib/mpi/openmpi-1.8.4-gcc/bin/mpicc -Wall -L/opt/lib/netcdf/netcdf-4.3.3.1-openmpi/lib -I/opt/lib/netcdf/netcdf-4.3.3.1-openmpi/include -I/opt/lib/mpi/openmpi-1.8.4-gcc/include -I/opt/lib/hdf5/hdf5-1.8.14-openmpi/include -lnetcdf -Wl,-rpath=/opt/lib/netcdf/netcdf-4.3.3.1-openmpi/lib test.c -o test

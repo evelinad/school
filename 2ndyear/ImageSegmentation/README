@@ -1,0 +1,21 @@
+DUMITRESCU Evelina 321CA
+Tema3PA
+
+1.Implementare
+  - citesc datele din fisierele imagine.pgm , mask_fg.pgm , mask_bg.pgm, parametri.txt
+  - calculez valorile pentru sigma_f, sigma_b, miu_f, miu_b
+  - construiesc graful conform formulelor specificate in enunt (folosesc liste de adiacenta)
+  - aplica algoritmul Dinic pentru flux maxim de la nodul sursa (notat f) la destinatie (notat gg)
+  - calculez taietura minima
+  - scriu datele in fisierul sergment.pgm
+  - ca timp de executie pe testul 16 obtin 7.1 sec (ma incadrez in cele 8 sec)
+
+2.Algoritmi utilizati
+  - algoritmul utilizat pt flux este Dinic
+  - complexitate O(N*N*M)
+  - fac o parcurgere BFS de la sursa si obtin nodurile copil precum si nodurile parinte
+  - in max_flow reconstruiesc calea catre sursa pt fiecare nod copil
+  - calculez fluxul si saturez muchiile unui astfel de drum
+  - in final determin taietura minima pe baza vectorului de parinti
+
+

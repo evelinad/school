@@ -1,0 +1,24 @@
+DUMITRESCU EVELINA 
+331CA
+Tema3 APD 
+
+1.Implementare 
+- metodele mandelbrot si julia calculeaza valoare culorii unui pixel conform
+    algoritmului specificat in pseudocod + formulelor matematice
+- procesul cu rankul 0 citeste datele din fisier si calculeaza valorile pentru
+      numarul de linii, coloane, dimensiune chunk linii+nr linii ramase
+      si le trimite mai departe celorlalte procese
+- fiecare fragment de linii ii revine cate unui proces; prosul cu rankul size -1
+    executa si restul de linii ramase in cazul in care impartirea e inexacta
+-  am ales  sa trimit linie cu linie rezultatele calculelor pentru a evita situatia in care 
+    bufferul de date/sistem este prea mic pentru a trimite/primi tot fragmentul dintr-o data
+- procesul cu rankul 0 primeste datele( liniile prelucrate) si actualizeaza matricea interna de culori
+- la sfarsit scriu datele in fisierul imagine
+
+
+2. Dificultati intampinate
+- am intampinat dificultati datorate pierderii preciziei rezultatelor
+   in urma adunarilor repetate in virgula mobila . 
+- pentru a rezolva aceasta, am ales sa scriu mai intai o varianta seriala a temei.
+        
+

@@ -1,0 +1,36 @@
+Dumitrescu Evelina 331CA
+Tema3
+
+Observatii
+In implementarea temei am considerat:
+	* sunt mereu 16 spe-uri si 16 imagini
+	* scale factor 4
+	* rezolutia imaginiilor este  624 x 352
+	Am folosit codul din laboratorul 8 si mailbox hands on
+	Ruland dodul de ferificare obtin max_diff=1
+
+
+Rulare
+    ./lab8_ppu /input_folder /output_folder nr_frames
+
+Implementare
+    - ppu creeaza threaduri pt fiecare spu (ppu_pthread si mailbox_pthread)
+    - spu primeste prin argument adresa si dimensiunea transferului initial
+    - in threadul dedicat fiecarui SPU se citesec imaginile corespunzatoare
+    - fiecare SPU prelucreaza frameuri cat timp primeste un mesaj de start diferit de 0
+    - fiecare SPU prelucreaza cate un chunk de cate 4 linii si copiaza 
+    liniile scalate in campul final dintr-o structura image
+    - ppu plaseaza liniile in imaginea scalata finala(campul final2 din structura image)
+    - cand toate threadurile au terminat de prelucrat imaginea pt un frame,
+     ppu reconstruieste imaginea finala
+    - pentru sincronizare am folosit o bariera posix reentranta
+    (am folosit laboratorul de SO [1])
+    
+    
+Varianta CELL versus varianta seriala
+	Varianta seriala a avut un timp total de 9.6 sec (scalarea efectiva 4.7)
+    Varianta de CELL a avut un timp total de 4.6 sec (scalarea efectiva 1.1 sec)
+	Acest lucru se datoreaza paralelizarii(pe 16 spu) si operatiilor de vectorizare.
+
+[1]
+    http://ocw.cs.pub.ro/courses/so/laboratoare/laborator-08#exemplu_de_utilizare_a_variabilelor_de_conditie

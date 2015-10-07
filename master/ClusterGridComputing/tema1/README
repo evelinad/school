@@ -1,0 +1,9 @@
+1. Configurarea LDAP, NETCDF am realizat-o ca in laborator.
+2. Pt descarcarea arhivelor se foloseste download.sh. Toate arhivele descarcate se afla in /home/root/kits
+3. Pt instalare se foloseste install.sh. Sursele proiectelor dezarhivate sunt puse in /home/root/src. Pentru Mosix am rulat de mana scriptul ./mosix.install si am configurat cu mosconf. Am configurat autentificarea fara parola pentru userul mosix. Am adaugat nodurile (10.9.3.166-10.9.3.168, cate 1 nod pentru fiecare entry), am setat secretul "student".
+4. Cu ajutorul scriptului run.sh se pot lansa joburi pentru:
+- mpich
+- openmpi
+- qsub_mpich
+- qsub_openmpi
+- mosix

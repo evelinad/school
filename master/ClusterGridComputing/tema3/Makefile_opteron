@@ -1,0 +1,5 @@
+build:
+	gcc tema.c -o tema -Wall `pkg-config --cflags --libs opencv` -I/opt/tools/libraries/atlas/3.10.1-opteron-gcc-4.4.6/include/  -L/opt/tools/libraries/atlas/3.10.1-opteron-gcc-4.4.6/lib/ -lsatlas -I/opt/tools/libraries/netcdf/4.1.3-hdf5-1.8.8-openmpi-1.6-gcc-4.6.3/include/ -L/opt/tools/libraries/netcdf/4.1.3-hdf5-1.8.8-openmpi-1.6-gcc-4.6.3/lib/ -lnetcdf
+
+clean:
+	rm -rf tema
