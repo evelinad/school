@@ -1,0 +1,54 @@
+By the number of songs
+
+Genre FUNK number of songs 7
+Genre SOUL number of songs 48
+Genre FOLK number of songs 53
+Genre OTHER number of songs 58
+Genre AMBIENT number of songs 60
+Genre CLASSICAL number of songs 61
+Genre REGGAE number of songs 65
+Genre ROCK number of songs 67
+Genre POP number of songs 67
+Genre HIP_HOP number of songs 67
+Genre EDM number of songs 67
+Genre JAZZ number of songs 67
+Genre BLUES number of songs 67
+Genre WORLD number of songs 67
+Genre LATIN number of songs 67
+
+By loudness
+
+Genre CLASSICAL loudness -20.553669
+Genre AMBIENT loudness -17.540531
+Genre JAZZ loudness -14.083181
+Genre FOLK loudness -12.958008
+Genre OTHER loudness -12.584228
+Genre BLUES loudness -12.535703
+Genre FUNK loudness -12.492785
+Genre WORLD loudness -12.183226
+Genre SOUL loudness -10.391309
+Genre POP loudness -10.189903
+Genre EDM loudness -9.935986
+Genre REGGAE loudness -9.614563
+Genre LATIN loudness -9.496603
+Genre ROCK loudness -9.286263
+Genre HIP_HOP loudness -8.178053
+
+By tempo
+
+Genre CLASSICAL tempo 105.25795
+Genre BLUES tempo 115.82053
+Genre SOUL tempo 115.87069
+Genre AMBIENT tempo 116.440186
+Genre FUNK tempo 116.850426
+Genre POP tempo 118.69924
+Genre OTHER tempo 119.90709
+Genre JAZZ tempo 119.94472
+Genre FOLK tempo 121.302734
+Genre WORLD tempo 121.61215
+Genre HIP_HOP tempo 121.88831
+Genre EDM tempo 123.287254
+Genre LATIN tempo 124.41462
+Genre ROCK tempo 126.004944
+Genre REGGAE tempo 134.35216
+

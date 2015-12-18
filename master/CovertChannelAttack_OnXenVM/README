@@ -1,0 +1,65 @@
+Evelina Dumitrescu SCPD
+XEN Covert Channel
+
+== The content of the archive ==
+  The archive contains the configuration files for the 2 VM, the Makefile,
+  README and the endpoint.cpp source file for the 2 endpoints
+  (receiver and sender).
+
+== Setup ==
+  The 2 VMs have a single VCPU each, pinned to the same CPU.
+
+== Implementation ==
+  The implemented protocol is stop and wait.
+
+  ** Frame structure **
+  From the sender to the receiver:
+      - 1 byte of payload
+      - 2 byte for frame sequence number
+      - 2 bytes for CRC
+  From the receiver to the sender:
+      - 2 bytes for the ACK/NACK. The NACK is represented as 0x0. The ACK is the
+        frame nr received
+      - 2 bytes for CRC
+
+  ** Bit signalling **
+  To signal the bits, are used time frames of
+  kExpectedDuration + 1 / 2 kExpectedDuration, where kExpectedDuration is the
+  maximum expected duration of the cu_intensive_task() method. The rationale
+  behind this is to calibrate the sender and the receiver.
+  On my workstation, the method took at most kExpectedDuration = 1000000 us.
+  To signal a 1 bit, the sender executes the cpus_intensive_task method.
+  To signal a 0 bit, the sender sleeps for a time frame.
+
+  For estimating the value of a bit, the receiver executes the method in a time
+  frame.
+  If it takes more than kExpectedDuration, then the bit is 1 (otherwise is 0).
+  The cpu_intensive_task method is not left to run more than a time frame.
+  If the method finishes earlier, then both the
+  receiver and sender wait for the time frame to finish.
+
+  In addition, the sender and the receiver are started on the same time (see
+  the calibrate() method). The moment of time is specified as a CLI argument.
+
+  I tested on a workstation with Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+
+  ** Handling packet corruption and retranmissions **
+  If a packet transmitted from the sender is not detected as corrupt, a
+  ACK packet is sent back by the receiver.
+  Otherwise a NACK packet is sent and the packet is retransmitted.
+  Also the packets sent by the receiver are checked for integrity. If a corrupt
+  packet sent by the receiver is detected, the sender retransmits it. To allow
+  the receiver to identify if a packet is a retransmission, the sender uses
+  a packet nr field.
+
+  The CRC16 function is taken from here
+  http://www.cs.umu.se/~isak/snippets/crc-16.c
+
+== Run ==
+  For the sender:
+  ./endpoint input_file start_time
+  The input file should have kPayloadSize 1 and 0 charachters per line (a frame
+  corresponds to a new line).
+  For the receiver:
+  ./endpoint output_file start_time
+

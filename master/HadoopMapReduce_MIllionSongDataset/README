@@ -1,0 +1,46 @@
+DUMITRESCU EVELINA SCPD
+Assignment 3
+
+Task1
+	In the Map stage I emit a Key-Value pair with the year of the song and
+the loudness. IN the Reduce stage I compute the average of the loudness for each
+year. The data types for the key-value pairs are LongWritable and FloatWritable.
+I believe that the spikes from the left side of the graph are due to the way the
+songs were recorded (i.e: the type of the musical disks: vinyl disks, CD/DVD,
+computer disk support). On the early years, the type of disks was low quality.
+
+
+Task2
+	I defined the MusicalNotes data type for storing the values (the
+minor/major tempo/loudness and the number of samples) from the key-value pairs
+of the Map/Reduce stages. In the Map stage I emit key-value pair corresponding to
+the year of the songs and a MusicalNotes data type for storing the
+tempo/loudness and the mode for a specific song. In the Reduce stage I compute
+the average for each year and mode type.
+	It does not seem to be any correspondance between minor/major modes and
+loudness and tempo levels.
+
+Task3
+	The value type of the key-value pairs is a custom one for storing the
+loduness/tempo and the number of samples (similar to task2, but without any
+difference for the mode). I defined a new key type (MusicGenreKey) for storing
+the genre of the song.
+	In the Map stage I detect  the genre of the song by using the
+detectGenre method from the GenreDetector class. In the Reduce stage I compute
+the average of the loudness/tempo for each genre type. When the hadoop job
+finishes, I sort the result  based on nr songs/loudness/tempo.
+
+Task4
+	The key type used is the same as in task 3. For the values, I
+defined the Importance data type that stores the influence score of every genre
+for a specific song. In the map stage I emit a key-value pair of every known
+genre and the Importance scores of a specific song. In the Reduce stage I sum up
+the Importance scores for every genre and transform it to percentage (the
+fraction between the score of the genre-key and the scores of the other genres;
+all the time the fraction is computed as smaller value/bigger value).
+The importance score of a Genre for a song is computed based on the matching
+between the genre keywords and terms that describe the song. For each match it
+is added the term frequency of the term from the song
+(see computeImportance from GenreDetector).
+
+See task1.png and task2.png for the grahps.
