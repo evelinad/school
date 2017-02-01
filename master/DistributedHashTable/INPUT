@@ -1,0 +1,4 @@
+PUT bla 10
+SLEEP 1000
+GET bla
+
