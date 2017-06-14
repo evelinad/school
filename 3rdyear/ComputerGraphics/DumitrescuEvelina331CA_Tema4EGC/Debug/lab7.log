@@ -1,0 +1,28 @@
+﻿Build started 1/14/2013 9:56:13 PM.
+     1>Project "C:\Users\evelina\Desktop\lab8_solved\lab7.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\lab7.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"glut-3.7.6-bin" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Satellite.cpp
+         Satellite.cpp
+     1>c:\users\evelina\desktop\lab8_solved\satellite.cpp(247): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\evelina\Desktop\lab8_solved\Debug\lab7.exe" /NOLOGO /LIBPATH:"glut-3.7.6-bin" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\lab7.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\evelina\Desktop\lab8_solved\Debug\lab7.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\evelina\Desktop\lab8_solved\Debug\lab7.lib" /MACHINE:X86 Debug\Satellite.obj
+         Debug\Camera.obj
+         Debug\lab7.obj
+         Debug\Light.obj
+         Debug\Object3D.obj
+         Debug\SpaceShip.obj
+         Debug\Transform3d.obj
+         LINK : C:\Users\evelina\Desktop\lab8_solved\Debug\lab7.exe not found or not built by the last incremental link; performing full link
+         lab7.vcxproj -> C:\Users\evelina\Desktop\lab8_solved\Debug\lab7.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\evelina\Desktop\lab8_solved\Debug\lab7.exe;#1" /manifest Debug\lab7.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\lab7.unsuccessfulbuild".
+         Touching "Debug\lab7.lastbuildstate".
+     1>Done Building Project "C:\Users\evelina\Desktop\lab8_solved\lab7.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.12

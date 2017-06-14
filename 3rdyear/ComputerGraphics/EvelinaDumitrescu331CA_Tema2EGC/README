@@ -1,0 +1,75 @@
+DUMITRESCU EVELINA 331CA
+Tema 2 EGC
+
+
+1. Cerinta
+	Implementarea unui joc ce permite rezolvarea cubului lui Rubik.
+	
+2. Utilizare
+	2.1	In rezolvarea temei am folosit scheletul de cod din laboratorul 3.
+		Arhiva contine fisierele sursa Support3d.cpp Transform3d.cpp si WorldDrawer3d_gl.cpp
+	
+	2.2 Input tastatura
+		Keys:
+			* ENTER - incepe jocul 
+			* 1-9 - selecteaza ce sectiune din cub va fi rotita
+			   __ ___ __ 
+			  /			/|	
+ 			 /         / | 1
+			/__ ___ __/  | 2
+			|         |  | 3
+			|         |  / 6
+			|         | / 5
+			|___ __ __|/4
+			  7  8  9
+			  
+			* x,y,z- rotiri in jurul axelor Ox, Oy, Oz
+			* sageata stanga/dreapta - directia de rotire
+			
+			Rotirile se efectueaza treptat, am ales un unghi de PI/6.
+			
+			
+	2.3 Implementare
+		Ca mediu de dezvoltare am folosit Visual Studio 2010( pe Windows 7).
+		Frameworkul este cel din laborator(glut).	
+	
+	2.4 Schema generala
+		La inceput, sunt aplicate de catre utilizator transformari 
+		pentru sectiuni folosind tastele de rotire(1-9 si x,y,z).
+		Cubul este construit dintr-un cub central peste care sunt puse alte 27 de cuburi de dimensiune 1
+		de culoare neagra. Fiecare cub unitate este fatetat cu alte 6 cuburi de diferite culori pentru 
+		a creea un aspect similar cubului Rubik. Din cauza cubului mare central in timpul rotatiilor 
+		intermediare ale unei sectiuni nu este vizibila fata superioara a cubului din centrul unei laturi.
+		Am pastrat totusi solutia aceasta pentru ca mi-a placut in rest finisajul cubului si efectele in relief astfel creeate.		
+		Dupa apasarea tastei ENTER incepe rezolvarea cubului propriu-zis si 
+		este afisat un mesaj de inceput de joc ("good luck") in partea de sus a ecranului timp de 5 secunde.
+		Incepand de acum sunt contorizate toate rotirile de sectiuni aplicate cubului.
+		Pentru scris am folosit glRasterPos2f,glutBitmapCharacter,glutBitmapWidth.Am urmarit tutorialul de aici [1].
+		Daca utilizatorul reuseste sa rezolve cubul(toate fetele au aceeasi culoare)atunci 
+		este afisat intr-o alta scena mesajul "moves: Nr_mutari". Literele si cifrele sunt 
+		construite integral din cuburi si am ales o combinatie de culori care sa creeze un efect de umbre.
+		Pentru a  determina daca toate fetele au aceeasi culoare, am folosit cate o matrice interna pt fiecare fata a cubului,
+		avand grija ca atunci cand o latura face o tranzitie de la o matrice la alta sa updatez indicii corespunzator.
+		Am numerotat fetele cubului in felul urmator:
+				__ ___ __ 
+			  /|		 /| 2	
+			 / | 5      / |
+			/__| ___ __/  | 
+		3	|  |  0    | 1| 
+			|  |-------|--| 
+			| /        | / 
+			|/___ __ __|/
+			  4
+			 
+				
+			  
+3.0 Probleme aparute
+	Am avut dificultati legate de :
+		- cum am ales sa fatetez cubul
+		- determin daca toate fetele au aceeasi culoare
+		- rotatia sectiunilor (updatam gresit matricea interna si nu mi se roteau cuburile de pe aceeasi sectiune)
+		
+		
+
+          [1]
+http://www.lighthouse3d.com/tutorials/glut-tutorial/bitmap-fonts-and-orthogonal-projections/

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="lab7">
+</Property><Property Name="Solution File" Value="F:\AN3\EGC\laboratoare\Vlad\Labs\lab8_solved\lab7.sln">
+</Property><Property Name="User Options File" Value="F:\AN3\EGC\laboratoare\Vlad\Labs\lab8_solved\lab7.suo">
+</Property><Property Name="Date" Value="29 decembrie 2012">
+</Property><Property Name="Time" Value="01:46">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="lab7.sln" Description="File successfully backed up as F:\AN3\EGC\laboratoare\Vlad\Labs\lab8_solved\lab7.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="lab7.suo" Description="File successfully backed up as F:\AN3\EGC\laboratoare\Vlad\Labs\lab8_solved\lab7.suo.old">
+</Event><Event ErrorLevel="0" Project="lab7" Source="lab7.vcproj" Description="Converting project file 'F:\AN3\EGC\laboratoare\Vlad\Labs\lab8_solved\lab7.vcproj'.">
+</Event><Event ErrorLevel="1" Project="lab7" Source="lab7.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="lab7" Source="lab7.vcproj" Description="Done converting to new project file 'F:\AN3\EGC\laboratoare\Vlad\Labs\lab8_solved\lab7.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="lab7" Source="lab7.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="lab7.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="lab7.sln" Description="Converted">
+</Event></UpgradeLog>

@@ -1,0 +1,36 @@
+DUMITRESCU EVELINA
+TEMA3 EGC
+
+
+1.Cerinta
+	Implementarea unui joc 3d ce simuleaza un labirint prin folosirea a 3 tipuri de camere.
+2. Utilizare
+	2.1 
+	In rezolvarea temei am folosit scheletul de cod din laboratorul 5.
+	Arhiva contine fisierele lab6.cpp, camera.cpp, camera.h , Vector3d.h.
+	2.2 
+	Input tastatura
+	* w/s mutat obiect+camera inainte / inapoi
+	* a/d rotire obiect + camera stanga dreapta
+	* e/r rotire camera pe axa Ox
+	* f/g rotire camera pe axa Oy
+	* x/c rotire camera pe axa Oz
+	*1/2/3 selectare mode TOPDOWN/FPS/TPS
+	Camerele se rotesc cu tastele e/r f/g x/c astfel incat rotatiile de-a lungul unei axe sa fie complete.
+	
+	2.3 
+	Implementare
+	Ca mediu de dezvoltare am folosit Visual Studio 2010( pe Windows 7).
+	Frameworkul este cel din laborator(glut).	
+	
+	2.4
+	Schema generala
+	Eroul ests reprezentat cu ajutorul unui con si a unei sfere. Directia de mers este data de varful conului.
+	Portalul este reprezentat prin sfera roz. Atunci cand eroul ajunge la sfera, acesta este invingator.
+	Inamicii sunt reprezentati prin cele 3 toruri de care eroul trebuie sa se fereasca.
+	Atunci cand eroul castiga/pierde este afisat un mesaj text de gameover  (metoda render Text; am folosit glRasterPos2f,glutBitmapCharacter,glutBitmapWidth).
+	Pentru reprezenatrea Eroului si inamicilor am folosit glLightfv si glMaterialfv  pentru a le da un aspect mai placut.
+	
+	3.0 Probleme aparute
+		- rotiri camere pe fiecare axa in parte
+		- reprezentare erou/personaje

@@ -1,0 +1,72 @@
+Dumitrescu Evelina
+Tema 1 EGC
+
+1.Cerinta
+	Implementarea unui joc de fotbal static.
+2.Utilizare 
+	
+	2.1	Fisiere
+	In rezolvarea temei am folosit scheletul de cod din laboratorul 2.
+	Arhiva contine fisierele sursa main.cpp, Transform2d.cpp, Suport2d.cpp, WorldDrawer2d.cpp 
+	si header Transform2d.h Suport2d.h, WorldDrawer2d.h si HeaderandDefines.h
+	
+	2.2	Input tastatura
+	- tastele j/k pentru deplasarea jucatorului care detine mingea in stanga/dreapta 
+	  fara a iesi din suparafata de joc
+	- tastele n/m pt rotirea jucatorului ce detine mingea cu unghi de PI/4 pt fiecare rotatie
+	- tasta space pentru shoot
+	
+	2.3 Implementare
+	Ca mediu de dezvoltare am folosit Visual Studio 2010( pe Windows 7).
+	Frameworkul este cel din laborator(glut).
+	
+	Jucatorii sunt plasati random in cadrul terenului(in total 16 jucatori).
+	Pentru a evita situatiile in care in urma generarii aleatoare 2 jucatori se suprapun,
+	am impartit suprafata de joc in 36 de celule de dimensiuni egale.
+	Am introdus numerele de la 1 la 36 intr-un vector si pentru fiecare jucator 
+	aleg random cate un element din vector ce corespunde unei celule,
+	dupa care sterg din acel vector numarul. Pentru a nu obtine un aspect de grid,
+	in cadrul unei celule jucatorii 
+	sunt plasati in functie de acest numar extras din vector.
+	
+	Culoarea jucatorilor(rosu/albastru) este aleasa alternativ.
+	
+	Initial, mingea este data unui jucator aleator.
+	
+	Scorul celor 2 echipe este desenat in partea dreapta a ecranului, 
+	punctele fiecarei echipe fiind desenate cu cifre romane,
+	iar cifra 0 este reprezentata printr-o elipsa.
+	Pentru desenarea literelor am folosit tot dreptughiuri.
+	
+	Cand o echipa ajunge la 3 puncte, fereastra isi schimba culoarea in alb pt 1 secunda.
+	In stabilirea scorului am tinut cont si de autogoluri.
+	
+	Jucatorii, mingea si cifra 0 sunt desentate cu ajutorul coordonatelor polare
+		x = R1 sin teta
+		y = R2 cos teta
+		pentru cerc R1 = R2
+		teta apartine [0,2*pi]
+	Terenul jocului este desenat cu dreptunghiuri, coordonatele sunt alese 
+	astfel incat sa fie ok din punct de vedere estetic.
+	Am implementat functii pentru trasarea dreptunghiurilor, cercurilor si a elipselor.
+	
+	Mingea se deplaseaza mereu cu un unghi de k * Pi/4
+	
+	Am tratat separat cazurile in care mingea loveste un perete de joc.
+	De exemplu, daca mingea loveste peretele de sus:
+		- daca unghiul mingei raportat la orizontala este de cadran 2 (pi/2<unghi minge <pi)
+			=> mingea va avea dupa ciocnire un unghi de cadran 3 (pi<unghi minge <3/2 *pi)
+		- cazurile in care unghi minge este de forma k * pi/2 sunt analizate individual
+		- etc
+	Daca in timpul miscarii mingea intalneste un alt jucator, mingea ramane in posesia lui.
+	Cand este preluata de un jucator, mingea  este mereu la un unghi de pi/2 fata de orizontala.
+	Daca nu este vizibila in cadrul terenului, este necesara o noua apasare a tastei space.s
+
+3. Testare
+	Am incercat sa testez aplicatia pentru cat mai multe scenraii de joc.
+
+4. Probleme aparute
+	Nu am intampinat probleme deosebite. Consider ca a fost o tema usoara.
+	
+5. Functionalitati bonus:
+	Ce este mentionat la implementare.

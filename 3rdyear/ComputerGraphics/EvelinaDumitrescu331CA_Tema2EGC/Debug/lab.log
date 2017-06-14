@@ -1,0 +1,99 @@
+﻿Build started 11/14/2012 10:19:58 PM.
+     1>Project "J:\AN3\EGC\laboratoare\evelina\lab22\lab2\lab2\lab.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\lab.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Idependinte /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(117): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(121): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(161): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(161): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(180): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(208): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(212): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(212): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(212): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(216): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(216): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(216): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(221): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(221): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(221): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(226): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(226): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(226): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(231): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(231): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(231): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(237): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(237): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(237): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(242): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(242): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(242): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(247): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(247): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(247): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(309): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(312): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(315): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(329): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(332): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(335): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(356): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(358): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(411): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(413): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(462): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(464): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(511): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(515): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(571): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(573): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(621): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(623): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(669): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(671): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(717): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(719): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(763): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(765): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(372): warning C4101: 'col' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(371): warning C4101: 'k' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(371): warning C4101: 'j' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(423): warning C4101: 'col' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(422): warning C4101: 'k' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(422): warning C4101: 'j' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(475): warning C4101: 'col' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(474): warning C4101: 'k' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(474): warning C4101: 'j' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(532): warning C4101: 'col' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(531): warning C4101: 'k' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(531): warning C4101: 'j' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(584): warning C4101: 'col' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(583): warning C4101: 'k' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(583): warning C4101: 'j' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(633): warning C4101: 'col' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(632): warning C4101: 'k' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(632): warning C4101: 'j' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(683): warning C4101: 'k' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(731): warning C4101: 'k' : unreferenced local variable
+     1>j:\an3\egc\laboratoare\evelina\lab22\lab2\lab2\main.cpp(775): warning C4101: 'k' : unreferenced local variable
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\lab.exe" /NOLOGO /LIBPATH:dependinte opengl32.lib glu32.lib freeglut.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\lab.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"J:\AN3\EGC\laboratoare\evelina\lab22\lab2\lab2\Debug\lab.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Debug\lab.lib" /MACHINE:X86 Debug\main.obj
+         Debug\Support3d.obj
+         Debug\Transform3d.obj
+         Debug\WorldDrawer3d_gl.obj
+         LINK : Debug\lab.exe not found or not built by the last incremental link; performing full link
+         lab.vcxproj -> J:\AN3\EGC\laboratoare\evelina\lab22\lab2\lab2\Debug\lab.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"Debug\lab.exe;#1" /manifest Debug\lab.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\lab.unsuccessfulbuild".
+         Touching "Debug\lab.lastbuildstate".
+     1>Done Building Project "J:\AN3\EGC\laboratoare\evelina\lab22\lab2\lab2\lab.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.70

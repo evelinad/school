@@ -1,0 +1,126 @@
+// EGC
+// Laborator 7
+//-------------------------------------------------
+
+#include "camera.h"
+#include "math.h"
+
+
+// constructor
+Camera::Camera()
+{
+	//initializare cu valorile standard OpenGL
+	Position = Vector3D (0.0, 0.0,	12);
+	ForwardVector = Vector3D( 0.0, 0.0, -1.0);
+	RightVector = Vector3D (1.0, 0.0, 0.0);
+	UpVector = Vector3D (0.0, 1.0, 0.0);
+}
+
+void Camera::RotateX (GLfloat Ang)
+{
+	Vector3D FrN,UpN;
+	FrN= ForwardVector *cos(Ang) + UpVector * sin(Ang);
+	UpN = UpVector * cos(Ang) - ForwardVector * sin(Ang);
+	ForwardVector=FrN;
+	UpVector=UpN;
+	ForwardVector.Normalize();
+	UpVector.Normalize();
+	//RightNew = - FwdNew x Up = Up x FwdNew
+}
+
+void Camera::RotateY (GLfloat Ang)
+{
+	Vector3D FrN,RightN;
+	FrN= ForwardVector *cos(Ang) + RightVector * sin(Ang);
+	RightN = RightVector * cos(Ang) - ForwardVector * sin(Ang);
+	ForwardVector=FrN;
+	RightVector=RightN;
+	ForwardVector.Normalize();
+	RightVector.Normalize();
+}
+
+void Camera::RotateZ (GLfloat Ang)
+{
+	Vector3D UpN,RightN;
+	UpN= UpVector *cos(Ang) + RightVector * sin(Ang);
+	RightN = RightVector * cos(Ang) - UpVector * sin(Ang);
+	UpVector=UpN;
+	RightVector=RightN;
+	UpVector.Normalize();
+	RightVector.Normalize();
+}
+
+// rotire fata de centru, la o distanta generica 5
+void Camera::RotateXCenter (GLfloat Angle)
+{
+	float distance = 5;
+	MoveUpward(distance);
+	RotateX(Angle);
+	MoveDownward(distance);
+}
+
+// rotire fata de centru, la o distanta generica 5
+void Camera::RotateYCenter (GLfloat Angle)
+{
+	float distance = 5;
+	MoveForward(distance);
+	RotateY(Angle);
+	MoveBackward(distance);
+}
+
+// rotire fata de centru, la o distanta generica 5
+void Camera::RotateZCenter (GLfloat Angle)
+{
+float distance = 5;
+	MoveRight(distance);
+	RotateZ(Angle);
+	MoveLeft(distance);
+}
+
+// plasare observator in scena
+void Camera::Render( void )
+{
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	// punctul catre care se uita camera
+	Vector3D ViewPoint = Position + ForwardVector;
+
+	// stim vectorul UpVector, folosim LookAt
+	gluLookAt(	Position.x,Position.y,Position.z,
+				ViewPoint.x,ViewPoint.y,ViewPoint.z,
+				UpVector.x,UpVector.y,UpVector.z);
+}
+
+// miscari simple, pe toate axele
+
+void Camera::MoveForward( GLfloat Distance )
+{
+	Position+=ForwardVector*Distance;
+}
+
+void Camera::MoveBackward( GLfloat Distance )
+{
+	Position-=ForwardVector*Distance;
+}
+
+void Camera::MoveRight ( GLfloat Distance )
+{
+	Position+=RightVector*Distance;
+}
+
+void Camera::MoveLeft ( GLfloat Distance )
+{
+	Position-=RightVector*Distance;
+}
+
+void Camera::MoveUpward( GLfloat Distance )
+{
+	Position+=UpVector*Distance;
+}
+
+void Camera::MoveDownward( GLfloat Distance )
+{
+	Position-=UpVector*Distance;
+}
+
